@@ -56,7 +56,7 @@ music_data = {
         ],
         "인디 🌿": [
             ("혁오 - Tomboy", "https://youtu.be/w3-AKITQMi0?si=icJZ33bNhL-cY8-j"),
-            ("잔나비 - 주저하는 연인들을 위해", "https://youtu.be/GpQ222I1ULc?si=1daFmny9sRNbyoLN"),
+            ("우효 - 민들레", "https://youtu.be/Kaq4LFM47I0?si=aiIb2IfNY1nQbzZi"),
         ],
     },
     "슬픔 😢": {
@@ -102,37 +102,37 @@ music_data = {
         "한국 힙합 🔥": [
             ("비프리 - INDO", "https://youtu.be/jFwo4fJ3NKk?si=C9Tcs0Ta04eu_GAC"),
             ("boycold - Trail", "https://youtu.be/e0Pmr2cFOQc?si=w7o64a41ZNP3rmaR"),
-            ("양홍원- SAHARA", "https://youtu.be/Na3NTn9KQ4Y?si=kB7TG0sWlH2EZxbo"),
+            ("양홍원- SAHARA", "https://youtu.be/Na3NTn9KQ4Y?si=nzj_WDcozuZzPRM1"),
         ],
         "한국 발라드 🎶": [
-            ("정승환 - 너였다면", "https://www.youtube.com/watch?v=mf6U91VnP2A"),
-            ("아이유 - 밤편지", "https://www.youtube.com/watch?v=BzYnNdJhZQw"),
+            ("정승환 - 너였다면", "https://youtu.be/7L3F9EEvidE?si=xQOVr4Tyge0TY_Hf"),
+            ("아이유 - 밤편지", "https://youtu.be/BzYnNdJhZQw?si=q5YVCrNiUYoUZMlS"),
         ],
         "팝 🎧": [
-            ("Coldplay - Fix You", "https://www.youtube.com/watch?v=k4V3Mo61fJM"),
-            ("Ed Sheeran - Photograph", "https://www.youtube.com/watch?v=nSDgHBxUbVQ"),
+            ("Coldplay - Fix You", "https://youtu.be/k4V3Mo61fJM?si=Jz1K6za6mNR8nJTz"),
+            ("Ed Sheeran - Photograph", "https://youtu.be/nSDgHBxUbVQ?si=h5iM2nOAdXg4lZzp"),
         ],
         "인디 🌿": [
-            ("우효 - 민들레", "https://www.youtube.com/watch?v=qQ0tqtT0zGc"),
-            ("카더가든 - 명동콜링", "https://www.youtube.com/watch?v=Z4TxqXqu5XI"),
+            ("잔나비 - 주저하는 연인들을 위해", "https://youtu.be/GpQ222I1ULc?si=1daFmny9sRNbyoLN"),
+            ("카더가든 - 명동콜링", "https://youtu.be/wPpbuE1bjsY?si=Hd7bCB3HqSuEFuRU"),
         ],
     },
     "힐링 🌿": {
         "한국 힙합 🔥": [
-            ("염따 - IE러니", "https://www.youtube.com/watch?v=K5n88M1A4aU"),
-            ("빈지노 - Always Awake", "https://www.youtube.com/watch?v=vyvRAyxzt8w"),
+            ("염따 - IE러니", "https://youtu.be/VFA2hMu4cpU?si=p_O1Vm1w4eMiuKDY"),
+            ("빈지노 - Always Awake", "https://youtu.be/nOZEth-6mrc?si=maYRl7kkyOfbbvzQ"),
         ],
         "한국 발라드 🎶": [
-            ("로이킴 - 봄봄봄", "https://www.youtube.com/watch?v=9bZkp7q19f0"),
-            ("폴킴 - 초록빛", "https://www.youtube.com/watch?v=4nYkHKj8B7A"),
+            ("로이킴 - 봄봄봄", "https://youtu.be/k3-BDy55tq4?si=kgsq9O5nqkGUjWtb"),
+            ("폴킴 - 초록빛", "https://youtu.be/xWL29QHZ_mA?si=DANglhuwzG7Aj-NV"),
         ],
         "팝 🎧": [
-            ("Lauv - Paris in the Rain", "https://www.youtube.com/watch?v=0bM0wVjU2-k"),
-            ("Daniel Caesar - Best Part", "https://www.youtube.com/watch?v=iKkqKzZR9oA"),
+            ("Lauv - Paris in the Rain", "https://youtu.be/kOCkne-Bku4?si=fBdQOa__UVrQtLUC"),
+            ("Daniel Caesar - Best Part", "https://youtu.be/vBy7FaapGRo?si=DNpJhgGozswYy_dR"),
         ],
         "인디 🌿": [
-            ("검정치마 - 기다린 만큼, 더", "https://www.youtube.com/watch?v=U5pwsQ2Un2E"),
-            ("데이식스 - 한 페이지가 될 수 있게", "https://www.youtube.com/watch?v=5f3L_oWfQBM"),
+            ("검정치마 - 기다린 만큼, 더", "https://youtu.be/uG2se-8-BzE?si=D0fx2b2XvGLiEdUn"),
+            ("데이식스 - 한 페이지가 될 수 있게", "https://youtu.be/vnS_jn2uibs?si=IxKF2YiVppfT5CTI"),
         ],
     },
 }
@@ -191,6 +191,7 @@ if password == "hy120134":  # 여기에 원하는 비밀번호 입력
         st.info("저장된 의견이 없습니다.")
 elif password:
     st.sidebar.error("비밀번호가 틀렸습니다.")
+
 
 
 
