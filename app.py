@@ -146,10 +146,12 @@ if st.button("🎲 추천 받기"):
         st.markdown(f"<div class='overlay'><h2>{messages[mood]}</h2></div>", unsafe_allow_html=True)
         st.success(f"🎧 추천 곡: {song}")
         st.video(link)
-st.header("의견 작성 폼")
+st.title("의견 작성 폼")
 
-opinion = st.text_area("추가 되었으면 하는 노래를 적어주세요:", height=150, placeholder="여기에 작성하세요...")
+# 의견 입력란
+opinion = st.text_area("추가 되었으면 하는 노래를 추천해주세요:", height=150, placeholder="여기에 작성하세요...")
 
+# 의견 제출 버튼
 if st.button("의견 제출"):
     if opinion.strip() == "":
         st.warning("의견을 작성해주세요.")
@@ -160,7 +162,7 @@ if st.button("의견 제출"):
         # CSV 파일 경로
         file_path = "opinions.csv"
 
-        # 기존 CSV 파일이 있는지 확인
+        # 기존 CSV 읽기 또는 새 데이터프레임 생성
         if os.path.exists(file_path):
             df = pd.read_csv(file_path)
         else:
@@ -170,6 +172,22 @@ if st.button("의견 제출"):
         df = pd.concat([df, pd.DataFrame({"의견": [opinion]})], ignore_index=True)
         df.to_csv(file_path, index=False)
 
-        st.info(f"총 {len(df)}개의 의견이 저장되었습니다.")
+# ==============================
+# 관리자용 의견 확인
+# ==============================
+st.sidebar.header("관리자 로그인")
+password = st.sidebar.text_input("비밀번호를 입력하세요", type="password")
 
-
+# 비밀번호 확인
+if password == "hy120134":  # 여기에 원하는 비밀번호 입력
+    st.sidebar.success("로그인 성공!")
+    
+    file_path = "opinions.csv"
+    if os.path.exists(file_path):
+        df = pd.read_csv(file_path)
+        st.subheader("모든 의견 확인 (관리자 전용)")
+        st.dataframe(df)  # 테이블로 표시
+    else:
+        st.info("저장된 의견이 없습니다.")
+elif password:
+    st.sidebar.error("비밀번호가 틀렸습니다.")
