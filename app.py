@@ -45,6 +45,7 @@ music_data = {
         "한국 힙합 🔥": [
             ("식케이 - LOV3", "https://youtu.be/oCvA-i9OTyg?si=nibW9SxH1YIU33Hr"),
             ("염따 - 더콰이엇", "https://youtu.be/BcXaRfuBgko?si=D_GCZt_UK4rJKznX"),
+            ("오케이션 - lalala", ""),
         ],
         "한국 발라드 🎶": [
             ("폴킴 - 커피 한 잔 할래요", "https://youtu.be/l7PgoVBZpc8?si=vPBAEX_v__L22oX4"),
@@ -53,6 +54,8 @@ music_data = {
         "팝 🎧": [
             ("Pharrell Williams - Happy", "https://youtu.be/ZbZSe6N_BXs?si=Uo2N0FB0Eze8_uH4"),
             ("Dua Lipa - Levitating", "https://youtu.be/TUVcZfQe-Kw?si=exq_r_PCQyD0L4-Y"),
+            ("Ed Sheeran - 2steps", ""),
+            ("Clay and freinds - Going up the coast", ""),
         ],
         "인디 🌿": [
             ("혁오 - Tomboy", "https://youtu.be/w3-AKITQMi0?si=icJZ33bNhL-cY8-j"),
@@ -63,6 +66,7 @@ music_data = {
         "한국 힙합 🔥": [
             ("이센스 - 비행", "https://youtu.be/Guul8Df7HfU?si=r3dFcUaZSM5kaLXP"),
             ("식케이 - See You In Every Party", "https://www.youtube.com/watch?v=QtbSjkl4IAg"),
+            ("최엘비 - 독립음악", ""),
         ],
         "한국 발라드 🎶": [
             ("폴킴 - 모든 날, 모든 순간", "https://youtu.be/nq0BYGyH2Do?si=OMQ2kjHDXzv3KZ1k"),
@@ -84,6 +88,7 @@ music_data = {
             ("키드밀리 - 25", "https://youtu.be/ARAdXfIWDWU?si=IG6-g6czSw9qY1Iz"),
             ("이센스 - Gas", "https://youtu.be/Gj-pHxO2K4Y?si=Kg_lgB2SgeIXT2yK"),
             ("나플라 - Wu", "https://youtu.be/TZquZFXS9Zk?si=fU3aOV0X3wl6371i"),
+            ("김하온 - 꼴통",""),
         ],
         "한국 발라드 🎶": [
             ("김필 - 다시 사랑한다면", "https://youtu.be/YyKSZARBcGo?si=MEaACPouwv-y8zIF"),
@@ -103,6 +108,7 @@ music_data = {
             ("비프리 - INDO", "https://youtu.be/jFwo4fJ3NKk?si=C9Tcs0Ta04eu_GAC"),
             ("boycold - Trail", "https://youtu.be/e0Pmr2cFOQc?si=w7o64a41ZNP3rmaR"),
             ("양홍원- SAHARA", "https://youtu.be/Na3NTn9KQ4Y?si=nzj_WDcozuZzPRM1"),
+            ("노엘 - 영원히", ""),
         ],
         "한국 발라드 🎶": [
             ("정승환 - 너였다면", "https://youtu.be/7L3F9EEvidE?si=xQOVr4Tyge0TY_Hf"),
@@ -191,6 +197,7 @@ if password == "hy120134":  # 여기에 원하는 비밀번호 입력
         st.info("저장된 의견이 없습니다.")
 elif password:
     st.sidebar.error("비밀번호가 틀렸습니다.")
+
 
 
 
