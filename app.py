@@ -149,7 +149,7 @@ if st.button("🎲 추천 받기"):
 st.title("의견 작성 폼")
 
 # 의견 입력란
-opinion = st.text_area("추가 되었으면 하는 노래를 추천해주세요:", height=150, placeholder="여기에 작성하세요...")
+opinion = st.text_area("특정한 감정을 느꼈을 때 추가 되었으면 하는 노래와 그 특정한 감정을 적어주세요:", height=150, placeholder="여기에 작성하세요...")
 
 # 의견 제출 버튼
 if st.button("의견 제출"):
@@ -191,6 +191,7 @@ if password == "hy120134":  # 여기에 원하는 비밀번호 입력
         st.info("저장된 의견이 없습니다.")
 elif password:
     st.sidebar.error("비밀번호가 틀렸습니다.")
+
 
 
 
