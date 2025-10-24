@@ -123,6 +123,7 @@ music_data = {
             ("카더가든 - 명동콜링", "https://youtu.be/wPpbuE1bjsY?si=Hd7bCB3HqSuEFuRU"),
             ("볼빨간사춘기 - blue", "https://youtu.be/t1yHpqup87M?si=MZrONgQ74krv2KKW"),
             ("나의 노래 메모장 - coffee", "https://youtu.be/1H0kSoG6htU?si=4RcAI9SY75ULbZ5A"),
+            ("결 - 사랑 없이 사는게 왜 그렇게 어려울까요", "https://youtu.be/_XFuXLliXlY?si=WNt5ggiwmL5HJDlq"),
         ],
     },
     "힐링 🌿": {
@@ -203,6 +204,7 @@ if password == "hy120134":  # 여기에 원하는 비밀번호 입력
         st.info("저장된 의견이 없습니다.")
 elif password:
     st.sidebar.error("비밀번호가 틀렸습니다.")
+
 
 
 
