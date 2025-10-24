@@ -43,7 +43,7 @@ messages = {
 music_data = {
     "기쁨 😀": {
         "한국 힙합 🔥": [
-            ("식케이 - LOV3", "https://www.youtube.com/watch?v=6b8JlcRfC3U"),
+            ("식케이 - LOV3", "https://youtu.be/oCvA-i9OTyg?si=nibW9SxH1YIU33Hr"),
             ("염따 - 더콰이엇", "https://youtu.be/BcXaRfuBgko?si=D_GCZt_UK4rJKznX"),
         ],
         "한국 발라드 🎶": [
@@ -65,12 +65,12 @@ music_data = {
             ("식케이 - See You In Every Party", "https://www.youtube.com/watch?v=QtbSjkl4IAg"),
         ],
         "한국 발라드 🎶": [
-            ("폴킴 - 모든 날, 모든 순간", "https://www.youtube.com/watch?v=OGgn4x4RlHo"),
-            ("이하이 - 한숨", "https://www.youtube.com/watch?v=R6EdYfKPVUI"),
+            ("폴킴 - 모든 날, 모든 순간", "https://youtu.be/nq0BYGyH2Do?si=OMQ2kjHDXzv3KZ1k"),
+            ("이하이 - 한숨", "https://youtu.be/5iSlfF8TQ9k?si=1m_8HsjRXekW7w2S"),
         ],
         "팝 🎧": [
-            ("Adele - Easy On Me", "https://www.youtube.com/watch?v=U3ASj1L6_sY"),
-            ("Sam Smith - Too Good at Goodbyes", "https://www.youtube.com/watch?v=J_ub7Etch2U"),
+            ("Adele - Easy On Me", "https://youtu.be/X-yIEMduRXk?si=n-11JO8PcCDZ1RQK"),
+            ("Sam Smith - Too Good at Goodbyes", "https://youtu.be/J_ub7Etch2U?si=d3n5tdISCewt9lHk"),
             ("Sam Smith - to die for", "https://youtu.be/POIK1H3L86k?si=-GtOGhj3eta256Ao"),
         ],
         "인디 🌿": [
@@ -191,4 +191,5 @@ if password == "hy120134":  # 여기에 원하는 비밀번호 입력
         st.info("저장된 의견이 없습니다.")
 elif password:
     st.sidebar.error("비밀번호가 틀렸습니다.")
+
 
