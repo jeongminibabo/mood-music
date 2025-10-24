@@ -65,25 +65,25 @@ music_data = {
         ],
         "인디 🌿": [
             ("검정치마 - EVERYTHING", "https://www.youtube.com/watch?v=f05h1Jj4p8M"),
-            ("새소년 - 난춘", "https://www.youtube.com/watch?v=KMNRkV6zEeE", "https://i.scdn.co/image/ab67616d0000b2734c936a4b9b43f013af665b29"),
+            ("새소년 - 난춘", "https://www.youtube.com/watch?v=KMNRkV6zEeE"),
         ],
     },
     "외로움 🥺": {
         "한국 힙합 🔥": [
-            ("비프리 - INDO", "https://www.youtube.com/watch?v=6qDwAdM6w7s", "https://i.scdn.co/image/ab67616d0000b2732b4e1c0b53c3e828308e0f83"),
-            ("boycold - Trail", "https://www.youtube.com/watch?v=znTbiuOHnp4", "https://i.scdn.co/image/ab67616d0000b273c31787046a9dfdb582a5da4d"),
+            ("비프리 - INDO", "https://www.youtube.com/watch?v=6qDwAdM6w7s"),
+            ("boycold - Trail", "https://www.youtube.com/watch?v=znTbiuOHnp4"),
         ],
         "한국 발라드 🎶": [
-            ("정승환 - 너였다면", "https://www.youtube.com/watch?v=mf6U91VnP2A", "https://i.scdn.co/image/ab67616d0000b273e4fa9f2b812f51f7f79b65f3"),
-            ("아이유 - 밤편지", "https://www.youtube.com/watch?v=BzYnNdJhZQw", "https://i.scdn.co/image/ab67616d0000b273267e97b6b7e87e0f58ef3f02"),
+            ("정승환 - 너였다면", "https://www.youtube.com/watch?v=mf6U91VnP2A"),
+            ("아이유 - 밤편지", "https://www.youtube.com/watch?v=BzYnNdJhZQw"),
         ],
         "팝 🎧": [
-            ("Coldplay - Fix You", "https://www.youtube.com/watch?v=k4V3Mo61fJM", "https://i.scdn.co/image/ab67616d0000b273dcb56b12a2047ed9cc2bc8b0"),
-            ("Ed Sheeran - Photograph", "https://www.youtube.com/watch?v=nSDgHBxUbVQ", "https://i.scdn.co/image/ab67616d0000b2735c49b0a53bdb5075b83bb8e3"),
+            ("Coldplay - Fix You", "https://www.youtube.com/watch?v=k4V3Mo61fJM"),
+            ("Ed Sheeran - Photograph", "https://www.youtube.com/watch?v=nSDgHBxUbVQ"),
         ],
         "인디 🌿": [
-            ("우효 - 민들레", "https://www.youtube.com/watch?v=qQ0tqtT0zGc", "https://i.scdn.co/image/ab67616d0000b27359e1570d1f3b2c718ff2eb8f"),
-            ("카더가든 - 명동콜링", "https://www.youtube.com/watch?v=Z4TxqXqu5XI", "https://i.scdn.co/image/ab67616d0000b273ae8d24b5c3587ec7c6adbf1e"),
+            ("우효 - 민들레", "https://www.youtube.com/watch?v=qQ0tqtT0zGc"),
+            ("카더가든 - 명동콜링", "https://www.youtube.com/watch?v=Z4TxqXqu5XI"),
         ],
     },
     "힐링 🌿": {
@@ -125,3 +125,4 @@ if st.button("🎲 추천 받기"):
         st.markdown(f"<div class='overlay'><h2>{messages[mood]}</h2></div>", unsafe_allow_html=True)
         st.success(f"🎧 추천 곡: {song}")
         st.video(link)
+
