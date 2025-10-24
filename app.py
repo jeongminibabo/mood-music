@@ -61,7 +61,7 @@ music_data = {
     },
     "슬픔 😢": {
         "한국 힙합 🔥": [
-            ("이센스 - 비행", "https://www.youtube.com/watch?v=ZsyqX-bpA1A"),
+            ("이센스 - 비행", "https://youtu.be/Guul8Df7HfU?si=r3dFcUaZSM5kaLXP"),
             ("식케이 - See You In Every Party", "https://www.youtube.com/watch?v=QtbSjkl4IAg"),
         ],
         "한국 발라드 🎶": [
@@ -191,5 +191,6 @@ if password == "hy120134":  # 여기에 원하는 비밀번호 입력
         st.info("저장된 의견이 없습니다.")
 elif password:
     st.sidebar.error("비밀번호가 틀렸습니다.")
+
 
 
