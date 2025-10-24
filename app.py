@@ -71,7 +71,7 @@ music_data = {
         "팝 🎧": [
             ("Adele - Easy On Me", "https://www.youtube.com/watch?v=U3ASj1L6_sY"),
             ("Sam Smith - Too Good at Goodbyes", "https://www.youtube.com/watch?v=J_ub7Etch2U"),
-            ("Sam Smith - to die for", https://youtu.be/POIK1H3L86k?si=-GtOGhj3eta256Ao"),
+            ("Sam Smith - to die for", "https://youtu.be/POIK1H3L86k?si=-GtOGhj3eta256Ao"),
         ],
         "인디 🌿": [
             ("10cm - 사랑은 은하수 다방에서", "https://www.youtube.com/watch?v=Hj5J4Rz76bM"),
@@ -171,3 +171,4 @@ if st.button("의견 제출"):
         df.to_csv(file_path, index=False)
 
         st.info(f"총 {len(df)}개의 의견이 저장되었습니다.")
+
