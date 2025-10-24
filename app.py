@@ -1,4 +1,29 @@
+import streamlit as st
+import random
 
+st.set_page_config(page_title="감정 + 장르 음악 추천기", layout="wide")
+
+st.markdown(
+    """
+    <style>
+    .overlay {
+        background-color: rgba(0,0,0,0.6);
+        padding: 2rem;
+        border-radius: 1rem;
+        color: white;
+        text-align: center;
+    }
+    h1, h2, h3 {
+        color: white;
+        text-shadow: 1px 1px 2px black;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
+st.title("🎶 감정 + 장르 기반 음악 추천기")
+st.write("기분과 장르를 선택하면 지금 당신에게 어울리는 노래를 추천해드려요 🌈")
 # 감정과 장르 선택
 mood = st.selectbox("현재 기분은 어떤가요?", ["기쁨 😀", "슬픔 😢", "분노 😡", "외로움 🥺", "힐링 🌿"])
 genre = st.selectbox("어떤 장르의 음악을 듣고 싶나요?", ["한국 힙합 🔥", "한국 발라드 🎶", "팝 🎧", "인디 🌿"])
@@ -125,5 +150,6 @@ if st.button("🎲 추천 받기"):
         st.markdown(f"<div class='overlay'><h2>{messages[mood]}</h2></div>", unsafe_allow_html=True)
         st.success(f"🎧 추천 곡: {song}")
         st.video(link)
+
 
 
