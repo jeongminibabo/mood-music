@@ -136,20 +136,8 @@ if st.button("🎲 추천 받기"):
     if genre not in music_data[mood]:
         st.warning("해당 감정과 장르에 맞는 곡이 아직 준비되지 않았어요 😢")
     else:
-        song, link, cover = random.choice(music_data[mood][genre])
-        st.markdown(
-            f"""
-            <style>
-            .stApp {{
-                background-image: url('{cover}');
-            }}
-            </style>
-            """,
-            unsafe_allow_html=True
-        )
+        song, link = random.choice(music_data[mood][genre])
         st.markdown(f"<div class='overlay'><h2>{messages[mood]}</h2></div>", unsafe_allow_html=True)
         st.success(f"🎧 추천 곡: {song}")
         st.video(link)
-
-
 
