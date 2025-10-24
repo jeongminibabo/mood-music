@@ -44,19 +44,19 @@ music_data = {
     "기쁨 😀": {
         "한국 힙합 🔥": [
             ("식케이 - LOV3", "https://www.youtube.com/watch?v=6b8JlcRfC3U"),
-            ("염따 - 더콰이엇", "https://www.youtube.com/watch?v=FC7S8vYhKmc"),
+            ("염따 - 더콰이엇", "https://youtu.be/BcXaRfuBgko?si=D_GCZt_UK4rJKznX"),
         ],
         "한국 발라드 🎶": [
-            ("폴킴 - 커피 한 잔 할래요", "https://www.youtube.com/watch?v=5q1R2zvY4fU"),
-            ("아이유 - 좋은 날", "https://www.youtube.com/watch?v=jeqdYqsrsA0"),
+            ("폴킴 - 커피 한 잔 할래요", "https://youtu.be/l7PgoVBZpc8?si=vPBAEX_v__L22oX4"),
+            ("아이유 - 좋은 날", "https://youtu.be/V6WWJNpIJN4?si=2sOjajQRCRujw3MH"),
         ],
         "팝 🎧": [
-            ("Pharrell Williams - Happy", "https://www.youtube.com/watch?v=ZbZSe6N_BXs"),
-            ("Dua Lipa - Levitating", "https://www.youtube.com/watch?v=TUVcZfQe-Kw"),
+            ("Pharrell Williams - Happy", "https://youtu.be/ZbZSe6N_BXs?si=Uo2N0FB0Eze8_uH4"),
+            ("Dua Lipa - Levitating", "https://youtu.be/TUVcZfQe-Kw?si=exq_r_PCQyD0L4-Y"),
         ],
         "인디 🌿": [
-            ("혁오 - Tomboy", "https://www.youtube.com/watch?v=ghfZcU6jBPM"),
-            ("잔나비 - 주저하는 연인들을 위해", "https://www.youtube.com/watch?v=dp0F18FFCTE"),
+            ("혁오 - Tomboy", "https://youtu.be/w3-AKITQMi0?si=icJZ33bNhL-cY8-j"),
+            ("잔나비 - 주저하는 연인들을 위해", "https://youtu.be/GpQ222I1ULc?si=1daFmny9sRNbyoLN"),
         ],
     },
     "슬픔 😢": {
@@ -191,3 +191,4 @@ if password == "hy120134":  # 여기에 원하는 비밀번호 입력
         st.info("저장된 의견이 없습니다.")
 elif password:
     st.sidebar.error("비밀번호가 틀렸습니다.")
+
