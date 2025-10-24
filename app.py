@@ -68,10 +68,12 @@ music_data = {
         "팝 🎧": [
             ("Adele - Easy On Me", "https://www.youtube.com/watch?v=U3ASj1L6_sY"),
             ("Sam Smith - Too Good at Goodbyes", "https://www.youtube.com/watch?v=J_ub7Etch2U"),
+            ("Sam Smith - to die for", https://youtu.be/POIK1H3L86k?si=-GtOGhj3eta256Ao"),
         ],
         "인디 🌿": [
             ("10cm - 사랑은 은하수 다방에서", "https://www.youtube.com/watch?v=Hj5J4Rz76bM"),
             ("검정치마 - 기다린 만큼, 더", "https://www.youtube.com/watch?v=U5pwsQ2Un2E"),
+            ("wave to earth - seasons", "https://youtu.be/g19EuryzWbE?si=Epo7feUp2SPE5yXB"),
         ],
     },
     "분노 😡": {
@@ -97,6 +99,7 @@ music_data = {
         "한국 힙합 🔥": [
             ("비프리 - INDO", "https://www.youtube.com/watch?v=6qDwAdM6w7s"),
             ("boycold - Trail", "https://www.youtube.com/watch?v=znTbiuOHnp4"),
+            ("양홍원- SAHARA", "https://youtu.be/Na3NTn9KQ4Y?si=kB7TG0sWlH2EZxbo"),
         ],
         "한국 발라드 🎶": [
             ("정승환 - 너였다면", "https://www.youtube.com/watch?v=mf6U91VnP2A"),
@@ -140,4 +143,5 @@ if st.button("🎲 추천 받기"):
         st.markdown(f"<div class='overlay'><h2>{messages[mood]}</h2></div>", unsafe_allow_html=True)
         st.success(f"🎧 추천 곡: {song}")
         st.video(link)
+
 
