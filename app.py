@@ -1,5 +1,8 @@
 import streamlit as st
 import random
+import pandas as pd
+import os
+
 
 st.set_page_config(page_title="감정 + 장르 음악 추천기", layout="wide")
 
@@ -143,23 +146,16 @@ if st.button("🎲 추천 받기"):
         st.markdown(f"<div class='overlay'><h2>{messages[mood]}</h2></div>", unsafe_allow_html=True)
         st.success(f"🎧 추천 곡: {song}")
         st.video(link)
+st.header("의견 작성 폼")
 
-import pandas as pd
-import os
+opinion = st.text_area("의견을 남겨주세요:", height=150, placeholder="여기에 작성하세요...")
 
-st.title("의견 작성 폼")
-
-# 의견 입력란
-opinion = st.text_area("어떤 노래가 추가되었으면 좋겠는지 적어주세요요:", height=150, placeholder="여기에 작성하세요...")
-
-# 제출 버튼
-if st.button("제출"):
+if st.button("의견 제출"):
     if opinion.strip() == "":
         st.warning("의견을 작성해주세요.")
     else:
         st.success("의견이 제출되었습니다!")
-        st.write("작성하신 의견:")
-        st.write(opinion)
+        st.write("작성하신 의견:", opinion)
 
         # CSV 파일 경로
         file_path = "opinions.csv"
