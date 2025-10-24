@@ -143,6 +143,8 @@ music_data = {
         "인디 🌿": [
             ("검정치마 - 기다린 만큼, 더", "https://youtu.be/uG2se-8-BzE?si=D0fx2b2XvGLiEdUn"),
             ("데이식스 - 한 페이지가 될 수 있게", "https://youtu.be/vnS_jn2uibs?si=IxKF2YiVppfT5CTI"),
+            ("한로로 - 사랑하게 될 거야", "https://youtu.be/h0KIWaUEIgQ?si=1qeNghJlZEgd8hYl"),
+            ("너드 커넥션 - 좋은 잠 좋은 꿈", "https://youtu.be/g-rZeTNIw7E?si=kwlR-va5cD6nomkJ"),
         ],
     },
 }
@@ -201,6 +203,7 @@ if password == "hy120134":  # 여기에 원하는 비밀번호 입력
         st.info("저장된 의견이 없습니다.")
 elif password:
     st.sidebar.error("비밀번호가 틀렸습니다.")
+
 
 
 
