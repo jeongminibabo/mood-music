@@ -81,27 +81,27 @@ music_data = {
     },
     "분노 😡": {
         "한국 힙합 🔥": [
-            ("키드밀리 - 25", "https://www.youtube.com/watch?v=5Zz8yGnC6H8"),
-            ("이센스 - Gas", "https://www.youtube.com/watch?v=Urm7IVD2oO8"),
-            ("나플라 - Wu", "https://www.youtube.com/watch?v=spkAxv3DDEo"),
+            ("키드밀리 - 25", "https://youtu.be/ARAdXfIWDWU?si=IG6-g6czSw9qY1Iz"),
+            ("이센스 - Gas", "https://youtu.be/Gj-pHxO2K4Y?si=Kg_lgB2SgeIXT2yK"),
+            ("나플라 - Wu", "https://youtu.be/TZquZFXS9Zk?si=fU3aOV0X3wl6371i"),
         ],
         "한국 발라드 🎶": [
-            ("김필 - 다시 사랑한다면", "https://www.youtube.com/watch?v=5bdFvYXm1tk"),
-            ("윤하 - 사건의 지평선", "https://www.youtube.com/watch?v=iqrMFNM8hOw"),
+            ("김필 - 다시 사랑한다면", "https://youtu.be/YyKSZARBcGo?si=MEaACPouwv-y8zIF"),
+            ("윤하 - 사건의 지평선", "https://youtu.be/BBdC1rl5sKY?si=HRvOrTUdtH43dfHF"),
         ],
         "팝 🎧": [
-            ("Eminem - Lose Yourself", "https://www.youtube.com/watch?v=_Yhyp-_hX2s"),
-            ("Imagine Dragons - Believer", "https://www.youtube.com/watch?v=7wtfhZwyrcc"),
+            ("Eminem - Lose Yourself", "https://youtu.be/xFYQQPAOz7Y?si=5DnRvsBAwAGJXWh-"),
+            ("Imagine Dragons - Believer", "https://youtu.be/7wtfhZwyrcc?si=B6W6ZPcEV5fjHlS0"),
         ],
         "인디 🌿": [
-            ("검정치마 - EVERYTHING", "https://www.youtube.com/watch?v=f05h1Jj4p8M"),
-            ("새소년 - 난춘", "https://www.youtube.com/watch?v=KMNRkV6zEeE"),
+            ("검정치마 - EVERYTHING", "https://youtu.be/Aq_gsctWHtQ?si=Ct0sSIA5qhpJnUKd"),
+            ("새소년 - 난춘", "https://youtu.be/KsznX5j2oQ0?si=ZpZ6KS_V4vQz2ZwT"),
         ],
     },
     "외로움 🥺": {
         "한국 힙합 🔥": [
-            ("비프리 - INDO", "https://www.youtube.com/watch?v=6qDwAdM6w7s"),
-            ("boycold - Trail", "https://www.youtube.com/watch?v=znTbiuOHnp4"),
+            ("비프리 - INDO", "https://youtu.be/jFwo4fJ3NKk?si=C9Tcs0Ta04eu_GAC"),
+            ("boycold - Trail", "https://youtu.be/e0Pmr2cFOQc?si=w7o64a41ZNP3rmaR"),
             ("양홍원- SAHARA", "https://youtu.be/Na3NTn9KQ4Y?si=kB7TG0sWlH2EZxbo"),
         ],
         "한국 발라드 🎶": [
@@ -191,6 +191,7 @@ if password == "hy120134":  # 여기에 원하는 비밀번호 입력
         st.info("저장된 의견이 없습니다.")
 elif password:
     st.sidebar.error("비밀번호가 틀렸습니다.")
+
 
 
 
