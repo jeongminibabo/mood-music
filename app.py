@@ -101,6 +101,7 @@ music_data = {
         "인디 🌿": [
             ("검정치마 - EVERYTHING", "https://youtu.be/Aq_gsctWHtQ?si=Ct0sSIA5qhpJnUKd"),
             ("새소년 - 난춘", "https://youtu.be/KsznX5j2oQ0?si=ZpZ6KS_V4vQz2ZwT"),
+            ("실리카겔 - No pain", "https://youtu.be/JaIMSzE5yLA?si=mouCfCsoI6iqKppS"),
         ],
     },
     "외로움 🥺": {
@@ -204,6 +205,7 @@ if password == "hy120134":  # 여기에 원하는 비밀번호 입력
         st.info("저장된 의견이 없습니다.")
 elif password:
     st.sidebar.error("비밀번호가 틀렸습니다.")
+
 
 
 
