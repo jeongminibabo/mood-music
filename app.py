@@ -1,34 +1,3 @@
-import streamlit as st
-import random
-
-st.set_page_config(page_title="감정 + 장르 음악 추천기", layout="wide")
-
-st.markdown(
-    """
-    <style>
-    .stApp {
-        background-size: cover;
-        background-position: center;
-        transition: background-image 1s ease-in-out;
-    }
-    .overlay {
-        background-color: rgba(0,0,0,0.5);
-        padding: 2rem;
-        border-radius: 1rem;
-        color: white;
-        text-align: center;
-    }
-    h1, h2, h3 {
-        color: white;
-        text-shadow: 1px 1px 2px black;
-    }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
-
-st.title("🎶 감정 + 장르 기반 음악 추천기")
-st.write("기분과 장르를 선택하면 지금 당신에게 어울리는 노래를 추천해드려요 🌈")
 
 # 감정과 장르 선택
 mood = st.selectbox("현재 기분은 어떤가요?", ["기쁨 😀", "슬픔 😢", "분노 😡", "외로움 🥺", "힐링 🌿"])
@@ -46,56 +15,56 @@ messages = {
 music_data = {
     "기쁨 😀": {
         "한국 힙합 🔥": [
-            ("식케이 - LOV3", "https://www.youtube.com/watch?v=6b8JlcRfC3U", "https://i.scdn.co/image/ab67616d0000b273c4c869ea56a9d8740a9c5e0b"),
-            ("염따 - 더콰이엇", "https://www.youtube.com/watch?v=FC7S8vYhKmc", "https://i.scdn.co/image/ab67616d0000b2736b74cbba4f76cb414a65e5c2"),
+            ("식케이 - LOV3", "https://www.youtube.com/watch?v=6b8JlcRfC3U"),
+            ("염따 - 더콰이엇", "https://www.youtube.com/watch?v=FC7S8vYhKmc"),
         ],
         "한국 발라드 🎶": [
-            ("폴킴 - 커피 한 잔 할래요", "https://www.youtube.com/watch?v=5q1R2zvY4fU", "https://i.scdn.co/image/ab67616d0000b273b784d97efc0b22d12f8fdb06"),
-            ("아이유 - 좋은 날", "https://www.youtube.com/watch?v=jeqdYqsrsA0", "https://i.scdn.co/image/ab67616d0000b273bcfa53d32f6a4eac847aeac2"),
+            ("폴킴 - 커피 한 잔 할래요", "https://www.youtube.com/watch?v=5q1R2zvY4fU"),
+            ("아이유 - 좋은 날", "https://www.youtube.com/watch?v=jeqdYqsrsA0"),
         ],
         "팝 🎧": [
-            ("Pharrell Williams - Happy", "https://www.youtube.com/watch?v=ZbZSe6N_BXs", "https://i.scdn.co/image/ab67616d0000b2738949f2f870a26f6b9c78b93b"),
-            ("Dua Lipa - Levitating", "https://www.youtube.com/watch?v=TUVcZfQe-Kw", "https://i.scdn.co/image/ab67616d0000b273b7a17eeb0d7b297c3b95b8a6"),
+            ("Pharrell Williams - Happy", "https://www.youtube.com/watch?v=ZbZSe6N_BXs"),
+            ("Dua Lipa - Levitating", "https://www.youtube.com/watch?v=TUVcZfQe-Kw"),
         ],
         "인디 🌿": [
-            ("혁오 - Tomboy", "https://www.youtube.com/watch?v=ghfZcU6jBPM", "https://i.scdn.co/image/ab67616d0000b2733a3e6d9c9a1c507b7bb91cc4"),
-            ("잔나비 - 주저하는 연인들을 위해", "https://www.youtube.com/watch?v=dp0F18FFCTE", "https://i.scdn.co/image/ab67616d0000b273ac6e567b3c2128b720e0c18a"),
+            ("혁오 - Tomboy", "https://www.youtube.com/watch?v=ghfZcU6jBPM"),
+            ("잔나비 - 주저하는 연인들을 위해", "https://www.youtube.com/watch?v=dp0F18FFCTE"),
         ],
     },
     "슬픔 😢": {
         "한국 힙합 🔥": [
-            ("이센스 - 비행", "https://www.youtube.com/watch?v=ZsyqX-bpA1A", "https://i.scdn.co/image/ab67616d0000b27396706d4e9f7c35fa7a44cf83"),
-            ("식케이 - See You In Every Party", "https://www.youtube.com/watch?v=QtbSjkl4IAg", "https://i.scdn.co/image/ab67616d0000b273ecf1f6a7e6ebec3ddcc0db5e"),
+            ("이센스 - 비행", "https://www.youtube.com/watch?v=ZsyqX-bpA1A"),
+            ("식케이 - See You In Every Party", "https://www.youtube.com/watch?v=QtbSjkl4IAg"),
         ],
         "한국 발라드 🎶": [
-            ("폴킴 - 모든 날, 모든 순간", "https://www.youtube.com/watch?v=OGgn4x4RlHo", "https://i.scdn.co/image/ab67616d0000b273b784d97efc0b22d12f8fdb06"),
-            ("이하이 - 한숨", "https://www.youtube.com/watch?v=R6EdYfKPVUI", "https://i.scdn.co/image/ab67616d0000b273deed7e7f6816f2412b937ff8"),
+            ("폴킴 - 모든 날, 모든 순간", "https://www.youtube.com/watch?v=OGgn4x4RlHo"),
+            ("이하이 - 한숨", "https://www.youtube.com/watch?v=R6EdYfKPVUI"),
         ],
         "팝 🎧": [
-            ("Adele - Easy On Me", "https://www.youtube.com/watch?v=U3ASj1L6_sY", "https://i.scdn.co/image/ab67616d0000b273bfa99d7e1e2c16a315cf0ad5"),
-            ("Sam Smith - Too Good at Goodbyes", "https://www.youtube.com/watch?v=J_ub7Etch2U", "https://i.scdn.co/image/ab67616d0000b27321b7a7ff0c664e8182b60b3f"),
+            ("Adele - Easy On Me", "https://www.youtube.com/watch?v=U3ASj1L6_sY"),
+            ("Sam Smith - Too Good at Goodbyes", "https://www.youtube.com/watch?v=J_ub7Etch2U"),
         ],
         "인디 🌿": [
-            ("10cm - 사랑은 은하수 다방에서", "https://www.youtube.com/watch?v=Hj5J4Rz76bM", "https://i.scdn.co/image/ab67616d0000b273a7da2a2532f68f9784c48db7"),
-            ("검정치마 - 기다린 만큼, 더", "https://www.youtube.com/watch?v=U5pwsQ2Un2E", "https://i.scdn.co/image/ab67616d0000b273f8d1fda8c3b17e6dba8e64f0"),
+            ("10cm - 사랑은 은하수 다방에서", "https://www.youtube.com/watch?v=Hj5J4Rz76bM"),
+            ("검정치마 - 기다린 만큼, 더", "https://www.youtube.com/watch?v=U5pwsQ2Un2E"),
         ],
     },
     "분노 😡": {
         "한국 힙합 🔥": [
-            ("키드밀리 - 25", "https://www.youtube.com/watch?v=5Zz8yGnC6H8", "https://i.scdn.co/image/ab67616d0000b2736f4d2ed5ef4174a3b4a3b8f4"),
-            ("이센스 - Gas", "https://www.youtube.com/watch?v=Urm7IVD2oO8", "https://i.scdn.co/image/ab67616d0000b27396706d4e9f7c35fa7a44cf83"),
-            ("나플라 - Wu", "https://www.youtube.com/watch?v=spkAxv3DDEo", "https://i.scdn.co/image/ab67616d0000b27351eaa00374b7208e64fbcddc"),
+            ("키드밀리 - 25", "https://www.youtube.com/watch?v=5Zz8yGnC6H8"),
+            ("이센스 - Gas", "https://www.youtube.com/watch?v=Urm7IVD2oO8"),
+            ("나플라 - Wu", "https://www.youtube.com/watch?v=spkAxv3DDEo"),
         ],
         "한국 발라드 🎶": [
-            ("김필 - 다시 사랑한다면", "https://www.youtube.com/watch?v=5bdFvYXm1tk", "https://i.scdn.co/image/ab67616d0000b273f48d92404f1b7df338424d24"),
-            ("윤하 - 사건의 지평선", "https://www.youtube.com/watch?v=iqrMFNM8hOw", "https://i.scdn.co/image/ab67616d0000b273548cb4984b75c1eeb8b8ef8a"),
+            ("김필 - 다시 사랑한다면", "https://www.youtube.com/watch?v=5bdFvYXm1tk"),
+            ("윤하 - 사건의 지평선", "https://www.youtube.com/watch?v=iqrMFNM8hOw"),
         ],
         "팝 🎧": [
-            ("Eminem - Lose Yourself", "https://www.youtube.com/watch?v=_Yhyp-_hX2s", "https://i.scdn.co/image/ab67616d0000b27331a3c715e0ac5c5a2e799c5f"),
-            ("Imagine Dragons - Believer", "https://www.youtube.com/watch?v=7wtfhZwyrcc", "https://i.scdn.co/image/ab67616d0000b273009c84b3bb1f1c9e8c13ebf8"),
+            ("Eminem - Lose Yourself", "https://www.youtube.com/watch?v=_Yhyp-_hX2s"),
+            ("Imagine Dragons - Believer", "https://www.youtube.com/watch?v=7wtfhZwyrcc"),
         ],
         "인디 🌿": [
-            ("검정치마 - EVERYTHING", "https://www.youtube.com/watch?v=f05h1Jj4p8M", "https://i.scdn.co/image/ab67616d0000b273f8d1fda8c3b17e6dba8e64f0"),
+            ("검정치마 - EVERYTHING", "https://www.youtube.com/watch?v=f05h1Jj4p8M"),
             ("새소년 - 난춘", "https://www.youtube.com/watch?v=KMNRkV6zEeE", "https://i.scdn.co/image/ab67616d0000b2734c936a4b9b43f013af665b29"),
         ],
     },
