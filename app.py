@@ -148,7 +148,7 @@ if st.button("🎲 추천 받기"):
         st.video(link)
 st.header("의견 작성 폼")
 
-opinion = st.text_area("의견을 남겨주세요:", height=150, placeholder="여기에 작성하세요...")
+opinion = st.text_area("추가 되었으면 하는 노래를 적어주세요:", height=150, placeholder="여기에 작성하세요...")
 
 if st.button("의견 제출"):
     if opinion.strip() == "":
@@ -171,4 +171,5 @@ if st.button("의견 제출"):
         df.to_csv(file_path, index=False)
 
         st.info(f"총 {len(df)}개의 의견이 저장되었습니다.")
+
 
