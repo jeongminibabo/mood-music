@@ -144,4 +144,34 @@ if st.button("🎲 추천 받기"):
         st.success(f"🎧 추천 곡: {song}")
         st.video(link)
 
+import pandas as pd
+import os
 
+st.title("의견 작성 폼")
+
+# 의견 입력란
+opinion = st.text_area("어떤 노래가 추가되었으면 좋겠는지 적어주세요요:", height=150, placeholder="여기에 작성하세요...")
+
+# 제출 버튼
+if st.button("제출"):
+    if opinion.strip() == "":
+        st.warning("의견을 작성해주세요.")
+    else:
+        st.success("의견이 제출되었습니다!")
+        st.write("작성하신 의견:")
+        st.write(opinion)
+
+        # CSV 파일 경로
+        file_path = "opinions.csv"
+
+        # 기존 CSV 파일이 있는지 확인
+        if os.path.exists(file_path):
+            df = pd.read_csv(file_path)
+        else:
+            df = pd.DataFrame(columns=["의견"])
+
+        # 새 의견 추가
+        df = pd.concat([df, pd.DataFrame({"의견": [opinion]})], ignore_index=True)
+        df.to_csv(file_path, index=False)
+
+        st.info(f"총 {len(df)}개의 의견이 저장되었습니다.")
