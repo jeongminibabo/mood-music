@@ -88,20 +88,20 @@ music_data = {
     },
     "힐링 🌿": {
         "한국 힙합 🔥": [
-            ("염따 - IE러니", "https://www.youtube.com/watch?v=K5n88M1A4aU", "https://i.scdn.co/image/ab67616d0000b2739b2c38eae2f2d2d8e7a948f3"),
-            ("빈지노 - Always Awake", "https://www.youtube.com/watch?v=vyvRAyxzt8w", "https://i.scdn.co/image/ab67616d0000b2738dc9a4a8b0a401cd58a2251d"),
+            ("염따 - IE러니", "https://www.youtube.com/watch?v=K5n88M1A4aU"),
+            ("빈지노 - Always Awake", "https://www.youtube.com/watch?v=vyvRAyxzt8w"),
         ],
         "한국 발라드 🎶": [
-            ("로이킴 - 봄봄봄", "https://www.youtube.com/watch?v=9bZkp7q19f0", "https://i.scdn.co/image/ab67616d0000b27323e56d890c27cd0fa0f82ef1"),
-            ("폴킴 - 초록빛", "https://www.youtube.com/watch?v=4nYkHKj8B7A", "https://i.scdn.co/image/ab67616d0000b273b784d97efc0b22d12f8fdb06"),
+            ("로이킴 - 봄봄봄", "https://www.youtube.com/watch?v=9bZkp7q19f0"),
+            ("폴킴 - 초록빛", "https://www.youtube.com/watch?v=4nYkHKj8B7A"),
         ],
         "팝 🎧": [
-            ("Lauv - Paris in the Rain", "https://www.youtube.com/watch?v=0bM0wVjU2-k", "https://i.scdn.co/image/ab67616d0000b273ac4cbf82a377ddf42b6bcb75"),
-            ("Daniel Caesar - Best Part", "https://www.youtube.com/watch?v=iKkqKzZR9oA", "https://i.scdn.co/image/ab67616d0000b2738a772d3ccbb6204fb3f6b2e1"),
+            ("Lauv - Paris in the Rain", "https://www.youtube.com/watch?v=0bM0wVjU2-k"),
+            ("Daniel Caesar - Best Part", "https://www.youtube.com/watch?v=iKkqKzZR9oA"),
         ],
         "인디 🌿": [
-            ("검정치마 - 기다린 만큼, 더", "https://www.youtube.com/watch?v=U5pwsQ2Un2E", "https://i.scdn.co/image/ab67616d0000b273f8d1fda8c3b17e6dba8e64f0"),
-            ("데이식스 - 한 페이지가 될 수 있게", "https://www.youtube.com/watch?v=5f3L_oWfQBM", "https://i.scdn.co/image/ab67616d0000b273e9dc8a364b0a4a2a7964c8e8"),
+            ("검정치마 - 기다린 만큼, 더", "https://www.youtube.com/watch?v=U5pwsQ2Un2E"),
+            ("데이식스 - 한 페이지가 될 수 있게", "https://www.youtube.com/watch?v=5f3L_oWfQBM"),
         ],
     },
 }
@@ -125,4 +125,5 @@ if st.button("🎲 추천 받기"):
         st.markdown(f"<div class='overlay'><h2>{messages[mood]}</h2></div>", unsafe_allow_html=True)
         st.success(f"🎧 추천 곡: {song}")
         st.video(link)
+
 
