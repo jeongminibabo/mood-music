@@ -164,32 +164,29 @@ if st.button("🎲 추천 받기"):
         st.markdown(f"<div class='overlay'><h2>{messages[mood]}</h2></div>", unsafe_allow_html=True)
         st.success(f"🎧 추천 곡: {song}")
         st.video(link)
-st.title("의견 작성 폼")
+st.title("감정 + 장르 음악 추천기")
 
-# 의견 입력란
-opinion = st.text_area("특정한 감정을 느꼈을 때 듣고싶은 노래와 그 특정한 감정을 적어주세요:", height=150, placeholder="여기에 작성하세요...")
+from pydrive2.auth import ServiceAccountCredentials
 
-# 의견 제출 버튼
-
-# 1️⃣ Google Drive 인증 (최초 실행 시 로그인 창이 뜹니다)
+# 서비스 계정 인증
 gauth = GoogleAuth()
-gauth.LocalWebserverAuth()
+gauth.LoadCredentialsFile("credentials.json")
+if gauth.credentials is None:
+    gauth.ServiceAuth()  # 서비스 계정으로 인증
 drive = GoogleDrive(gauth)
 
-# 2️⃣ 사용자 의견 입력
+# 사용자 의견 입력
 opinion = st.text_area("의견을 남겨주세요:")
 
 if st.button("제출"):
     df = pd.DataFrame({"의견": [opinion]})
     df.to_csv("opinions.csv", index=False)
 
-    # 3️⃣ Google Drive에 업로드
     file = drive.CreateFile({'title': 'opinions.csv'})
     file.SetContentFile("opinions.csv")
     file.Upload()
 
     st.success("의견이 Google Drive에 저장되었습니다 ✅")
-
 # ==============================
 # 관리자용 의견 확인
 # ==============================
@@ -209,6 +206,7 @@ if password == "hy120134":  # 여기에 원하는 비밀번호 입력
         st.info("저장된 의견이 없습니다.")
 elif password:
     st.sidebar.error("비밀번호가 틀렸습니다.")
+
 
 
 
