@@ -1,7 +1,11 @@
-import streamlit as st
+
 import random
+import streamlit as st
 import pandas as pd
+from pydrive2.auth import GoogleAuth
+from pydrive2.drive import GoogleDrive
 import os
+
 
 
 st.set_page_config(page_title="감정 + 장르 음악 추천기", layout="wide")
@@ -166,26 +170,25 @@ st.title("의견 작성 폼")
 opinion = st.text_area("특정한 감정을 느꼈을 때 듣고싶은 노래와 그 특정한 감정을 적어주세요:", height=150, placeholder="여기에 작성하세요...")
 
 # 의견 제출 버튼
-if st.button("의견 제출"):
-    if opinion.strip() == "":
-        st.warning("의견을 작성해주세요.")
-    else:
-        st.success("의견이 제출되었습니다!")
-        st.write("작성하신 의견:", opinion)
 
-        # CSV 파일 경로
-        file_path = "/content/drive/MyDrive/streamlit_data/opinions.csv"
+# 1️⃣ Google Drive 인증 (최초 실행 시 로그인 창이 뜹니다)
+gauth = GoogleAuth()
+gauth.LocalWebserverAuth()
+drive = GoogleDrive(gauth)
 
+# 2️⃣ 사용자 의견 입력
+opinion = st.text_area("의견을 남겨주세요:")
 
-        # 기존 CSV 읽기 또는 새 데이터프레임 생성
-        if os.path.exists(file_path):
-            df = pd.read_csv(file_path)
-        else:
-            df = pd.DataFrame(columns=["의견"])
+if st.button("제출"):
+    df = pd.DataFrame({"의견": [opinion]})
+    df.to_csv("opinions.csv", index=False)
 
-        # 새 의견 추가
-        df = pd.concat([df, pd.DataFrame({"의견": [opinion]})], ignore_index=True)
-        df.to_csv(file_path, index=False)
+    # 3️⃣ Google Drive에 업로드
+    file = drive.CreateFile({'title': 'opinions.csv'})
+    file.SetContentFile("opinions.csv")
+    file.Upload()
+
+    st.success("의견이 Google Drive에 저장되었습니다 ✅")
 
 # ==============================
 # 관리자용 의견 확인
@@ -206,6 +209,7 @@ if password == "hy120134":  # 여기에 원하는 비밀번호 입력
         st.info("저장된 의견이 없습니다.")
 elif password:
     st.sidebar.error("비밀번호가 틀렸습니다.")
+
 
 
 
