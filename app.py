@@ -1,36 +1,42 @@
-
-import random
 import streamlit as st
+import random
 import pandas as pd
+import os
 from pydrive2.auth import GoogleAuth
 from pydrive2.drive import GoogleDrive
-import os
 
+# ===============================
+# 서비스 계정 인증
+# ===============================
+SERVICE_ACCOUNT_FILE = "credentials.json"  # Streamlit Cloud에 업로드한 JSON
 
+gauth = GoogleAuth()
+gauth.credentials = None
+gauth.auth_method = 'service'
+gauth.ServiceAuth(service_account_json=SERVICE_ACCOUNT_FILE)
+drive = GoogleDrive(gauth)
 
+# ===============================
+# 앱 설정
+# ===============================
 st.set_page_config(page_title="감정 + 장르 음악 추천기", layout="wide")
 
-st.markdown(
-    """
-    <style>
-    .overlay {
-        background-color: rgba(0,0,0,0.6);
-        padding: 2rem;
-        border-radius: 1rem;
-        color: white;
-        text-align: center;
-    }
-    h1, h2, h3 {
-        color: white;
-        text-shadow: 1px 1px 2px black;
-    }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
+st.markdown("""
+<style>
+.overlay {
+    background-color: rgba(0,0,0,0.6);
+    padding: 2rem;
+    border-radius: 1rem;
+    color: white;
+    text-align: center;
+}
+h1, h2, h3 { color: white; text-shadow: 1px 1px 2px black; }
+</style>
+""", unsafe_allow_html=True)
 
 st.title("🎶 감정 + 장르 기반 음악 추천기")
 st.write("기분과 장르를 선택하면 지금 당신에게 어울리는 노래를 추천해드려요 🌈")
+
 # 감정과 장르 선택
 mood = st.selectbox("현재 기분은 어떤가요?", ["기쁨 😀", "슬픔 😢", "분노 😡", "외로움 🥺", "힐링 🌿"])
 genre = st.selectbox("어떤 장르의 음악을 듣고 싶나요?", ["한국 힙합 🔥", "한국 발라드 🎶", "팝 🎧", "인디 🌿"])
@@ -43,7 +49,9 @@ messages = {
     "힐링 🌿": "조용히 쉬어가요 🍃",
 }
 
-# 감정 + 장르별 음악 데이터 (노래, 유튜브 링크, 앨범커버 이미지)
+# ===============================
+# 감정 + 장르별 음악 데이터
+# ===============================
 music_data = {
     "기쁨 😀": {
         "한국 힙합 🔥": [
@@ -127,16 +135,12 @@ music_data = {
             ("잔나비 - 주저하는 연인들을 위해", "https://youtu.be/GpQ222I1ULc?si=1daFmny9sRNbyoLN"),
             ("카더가든 - 명동콜링", "https://youtu.be/wPpbuE1bjsY?si=Hd7bCB3HqSuEFuRU"),
             ("볼빨간사춘기 - blue", "https://youtu.be/t1yHpqup87M?si=MZrONgQ74krv2KKW"),
-            ("나의 노래 메모장 - coffee", "https://youtu.be/1H0kSoG6htU?si=4RcAI9SY75ULbZ5A"),
-            ("결 - 사랑 없이 사는게 왜 그렇게 어려울까요", "https://youtu.be/_XFuXLliXlY?si=WNt5ggiwmL5HJDlq"),
         ],
     },
     "힐링 🌿": {
         "한국 힙합 🔥": [
             ("염따 - IE러니", "https://youtu.be/VFA2hMu4cpU?si=p_O1Vm1w4eMiuKDY"),
             ("빈지노 - Always Awake", "https://youtu.be/nOZEth-6mrc?si=maYRl7kkyOfbbvzQ"),
-            ("빈지노 - Aqua man", "https://youtu.be/08h8u8Z9iJQ?si=ODx61xgvn1WLBKMK"),
-            ("빈지노 - 아까워", "https://youtu.be/ppudgIu2TaM?si=ZBZ-gS3ZrGuZrPDW"),
         ],
         "한국 발라드 🎶": [
             ("로이킴 - 봄봄봄", "https://youtu.be/k3-BDy55tq4?si=kgsq9O5nqkGUjWtb"),
@@ -149,56 +153,58 @@ music_data = {
         "인디 🌿": [
             ("검정치마 - 기다린 만큼, 더", "https://youtu.be/uG2se-8-BzE?si=D0fx2b2XvGLiEdUn"),
             ("데이식스 - 한 페이지가 될 수 있게", "https://youtu.be/vnS_jn2uibs?si=IxKF2YiVppfT5CTI"),
-            ("한로로 - 사랑하게 될 거야", "https://youtu.be/h0KIWaUEIgQ?si=1qeNghJlZEgd8hYl"),
-            ("너드 커넥션 - 좋은 잠 좋은 꿈", "https://youtu.be/g-rZeTNIw7E?si=kwlR-va5cD6nomkJ"),
         ],
     },
 }
 
+# ===============================
 # 추천 버튼
+# ===============================
 if st.button("🎲 추천 받기"):
-    if genre not in music_data[mood]:
-        st.warning("해당 감정과 장르에 맞는 곡이 아직 준비되지 않았어요 😢")
-    else:
-        song, link = random.choice(music_data[mood][genre])
-        st.markdown(f"<div class='overlay'><h2>{messages[mood]}</h2></div>", unsafe_allow_html=True)
+    songs_for_genre = music_data.get(mood, {}).get(genre, [])
+    if songs_for_genre:
+        song, link = random.choice(songs_for_genre)
+        st.markdown(f"<div class='overlay'><h2>{messages.get(mood,'')}</h2></div>", unsafe_allow_html=True)
         st.success(f"🎧 추천 곡: {song}")
         st.video(link)
-st.title("감정 + 장르 음악 추천기")
-from pydrive2.auth import ServiceAccountCredentials
+    else:
+        st.warning("해당 감정과 장르에 맞는 곡이 아직 준비되지 않았어요 😢")
 
-# 서비스 계정 인증
-gauth = GoogleAuth()
-gauth.LoadCredentialsFile("credentials.json")
-if gauth.credentials is None:
-    gauth.ServiceAuth()  # 서비스 계정으로 인증
-drive = GoogleDrive(gauth)
+# ===============================
+# 의견 작성
+# ===============================
+st.title("의견 작성 폼")
+opinion = st.text_area("특정한 감정을 느꼈을 때 듣고싶은 노래와 그 특정한 감정을 적어주세요:", height=150, placeholder="여기에 작성하세요...")
 
-# 사용자 의견 입력
-opinion = st.text_area("의견을 남겨주세요:")
+if st.button("의견 제출"):
+    if opinion.strip() == "":
+        st.warning("의견을 작성해주세요.")
+    else:
+        st.success("의견이 제출되었습니다!")
+        st.write("작성하신 의견:", opinion)
 
-if st.button("제출"):
-    df = pd.DataFrame({"의견": [opinion]})
-    df.to_csv("opinions.csv", index=False)
+        # CSV로 저장
+        df = pd.DataFrame({"의견": [opinion]})
+        df.to_csv("opinions.csv", index=False)
 
-    file = drive.CreateFile({'title': 'opinions.csv'})
-    file.SetContentFile("opinions.csv")
-    file.Upload()
+        # Google Drive 업로드
+        file = drive.CreateFile({'title': 'opinions.csv'})
+        file.SetContentFile("opinions.csv")
+        file.Upload()
+        st.success("Google Drive에 저장되었습니다 ✅")
 
-    st.success("의견이 Google Drive에 저장되었습니다 ✅")
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+# ===============================
+# 관리자용 의견 확인
+# ===============================
+st.sidebar.header("관리자 로그인")
+password = st.sidebar.text_input("비밀번호를 입력하세요", type="password")
+if password == "hy120134":
+    st.sidebar.success("로그인 성공!")
+    if os.path.exists("opinions.csv"):
+        df = pd.read_csv("opinions.csv")
+        st.subheader("모든 의견 확인 (관리자 전용)")
+        st.dataframe(df)
+    else:
+        st.info("저장된 의견이 없습니다.")
+elif password:
+    st.sidebar.error("비밀번호가 틀렸습니다.")
