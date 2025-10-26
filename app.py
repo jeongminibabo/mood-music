@@ -174,7 +174,8 @@ if st.button("의견 제출"):
         st.write("작성하신 의견:", opinion)
 
         # CSV 파일 경로
-        file_path = "opinions.csv"
+        file_path = "/content/drive/MyDrive/streamlit_data/opinions.csv"
+
 
         # 기존 CSV 읽기 또는 새 데이터프레임 생성
         if os.path.exists(file_path):
@@ -205,6 +206,7 @@ if password == "hy120134":  # 여기에 원하는 비밀번호 입력
         st.info("저장된 의견이 없습니다.")
 elif password:
     st.sidebar.error("비밀번호가 틀렸습니다.")
+
 
 
 
