@@ -165,7 +165,6 @@ if st.button("🎲 추천 받기"):
         st.success(f"🎧 추천 곡: {song}")
         st.video(link)
 st.title("감정 + 장르 음악 추천기")
-
 from pydrive2.auth import ServiceAccountCredentials
 
 # 서비스 계정 인증
@@ -187,27 +186,6 @@ if st.button("제출"):
     file.Upload()
 
     st.success("의견이 Google Drive에 저장되었습니다 ✅")
-# ==============================
-# 관리자용 의견 확인
-# ==============================
-st.sidebar.header("관리자 로그인")
-password = st.sidebar.text_input("비밀번호를 입력하세요", type="password")
-
-# 비밀번호 확인
-if password == "hy120134":  # 여기에 원하는 비밀번호 입력
-    st.sidebar.success("로그인 성공!")
-    
-    file_path = "opinions.csv"
-    if os.path.exists(file_path):
-        df = pd.read_csv(file_path)
-        st.subheader("모든 의견 확인 (관리자 전용)")
-        st.dataframe(df)  # 테이블로 표시
-    else:
-        st.info("저장된 의견이 없습니다.")
-elif password:
-    st.sidebar.error("비밀번호가 틀렸습니다.")
-
-
 
 
 
