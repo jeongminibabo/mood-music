@@ -1,4 +1,4 @@
-pip install pydrive2
+
 import random
 import streamlit as st
 import pandas as pd
@@ -206,6 +206,7 @@ if password == "hy120134":  # 여기에 원하는 비밀번호 입력
         st.info("저장된 의견이 없습니다.")
 elif password:
     st.sidebar.error("비밀번호가 틀렸습니다.")
+
 
 
 
