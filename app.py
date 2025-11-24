@@ -149,47 +149,87 @@ if st.button("🎲 추천 받기"):
     else:
         st.warning("해당 감정과 장르에 맞는 곡이 아직 준비되지 않았어요 😢")
 
-# ===============================
-# 의견 작성 폼
-# ===============================
-st.title("의견 작성 폼")
-opinion = st.text_area("특정한 감정을 느꼈을 때 듣고싶은 노래와 감정을 적어주세요:", height=150, placeholder="여기에 작성하세요...")
+# -----------------------------
+
+# 의견 작성
+
+# -----------------------------
+
+st.header("💬 의견 작성")
+
+opinion = st.text_area("노래 추천 의견이나 건의사항을 적어주세요!", height=150)
+
+
 
 if st.button("의견 제출"):
-    if opinion.strip() == "":
-        st.warning("의견을 작성해주세요.")
-    else:
-        st.success("의견이 제출되었습니다!")
-        st.write("작성한 의견:", opinion)
 
-        # CSV 파일 경로
+    if opinion.strip() == "":
+
+        st.warning("내용을 입력해주세요!")
+
+    else:
+
+        today = datetime.datetime.now().strftime("%Y-%m-%d %H:%M")
+
         file_path = "opinions.csv"
 
-        # CSV가 없으면 새로 생성, 있으면 기존 데이터 불러오기
-        if os.path.exists(file_path):
-            df = pd.read_csv(file_path)
-        else:
-            df = pd.DataFrame(columns=["의견"])
 
-        # 새 의견 추가
-        new_df = pd.DataFrame({"의견": [opinion]})
-        df = pd.concat([df, new_df], ignore_index=True)
+
+        # 기존 파일 있으면 불러오기
+
+        if os.path.exists(file_path):
+
+            df = pd.read_csv(file_path)
+
+        else:
+
+            df = pd.DataFrame(columns=["시간", "의견"])
+
+
+
+        new_row = pd.DataFrame({"시간": [today], "의견": [opinion]})
+
+        df = pd.concat([df, new_row], ignore_index=True)
+
+
+
         df.to_csv(file_path, index=False)
 
-# ===============================
-# 관리자용 의견 확인
-# ===============================
+        st.success("의견이 저장되었습니다!")
+
+
+
+        st.info("⚠️ 이 의견은 GitHub 저장소에 저장되며 절대 사라지지 않습니다.")
+
+
+
+# -----------------------------
+
+# 관리자 페이지
+
+# -----------------------------
+
 st.sidebar.header("관리자 로그인")
-password = st.sidebar.text_input("비밀번호를 입력하세요", type="password")
+
+password = st.sidebar.text_input("비밀번호 입력", type="password")
+
+
 
 if password == "hy120134":
-    st.sidebar.success("로그인 성공!")
-    file_path = "opinions.csv"
-    if os.path.exists(file_path):
-        df = pd.read_csv(file_path)
-        st.subheader("모든 의견 확인 (관리자 전용)")
+
+    st.sidebar.success("관리자 인증 성공!")
+
+    st.header("📁 저장된 모든 의견")
+
+
+
+    if os.path.exists("opinions.csv"):
+
+        df = pd.read_csv("opinions.csv")
+
         st.dataframe(df)
+
     else:
-        st.info("저장된 의견이 없습니다.")
-elif password:
-    st.sidebar.error("비밀번호가 틀렸습니다.")
+
+        st.info("아직 저장된 의견이 없습니다.")
+
