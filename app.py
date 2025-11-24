@@ -2,7 +2,7 @@ import streamlit as st
 import random
 import pandas as pd
 import os
-from datetime import datetime
+import datetime
 
 # ===============================
 # 앱 설정
@@ -233,5 +233,6 @@ if password == "hy120134":
     else:
 
         st.info("아직 저장된 의견이 없습니다.")
+
 
 
